@@ -345,6 +345,9 @@ class SentenceTransformer(nn.Sequential):
             optimizers.append(optimizer)
             schedulers.append(scheduler_obj)
 
+        print('!!!!!!!!!!!!!!!!!!!!!!!!')
+        print(schedulers)
+            
         if fp16:
             try:
                 from apex import amp
