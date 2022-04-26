@@ -89,7 +89,8 @@ class BinaryClassificationEvaluator(SentenceEvaluator):
         for short_name in scores:
             if scores[short_name]['f1'] > max_f1:
                 max_f1 = scores[short_name]['f1']
-                max_infor[short_name] = scores[short_name]
+                max_infor = scores[short_name]
+                max_infor['distance'] = short_name
 
         file_output_data = [epoch, steps]
 
