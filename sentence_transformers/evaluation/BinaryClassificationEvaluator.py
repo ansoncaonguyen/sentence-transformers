@@ -83,8 +83,13 @@ class BinaryClassificationEvaluator(SentenceEvaluator):
         scores = self.compute_metrices(model)
 
 
-        #Main score is the max of Average Precision (AP)
-        main_score = max(scores[short_name]['ap'] for short_name in scores)
+        #Main score is the max of F1
+        max_f1 = 0
+        max_infor = {}
+        for short_name in output_scores:
+            if output_scores[short_name]['f1'] > max_f1:
+                max_f1 = output_scores[short_name]['f1']
+                max_infor = output_scores[short_name]
 
         file_output_data = [epoch, steps]
 
@@ -105,7 +110,7 @@ class BinaryClassificationEvaluator(SentenceEvaluator):
                     writer = csv.writer(f)
                     writer.writerow(file_output_data)
 
-        return main_score
+        return max_infor
 
 
     def compute_metrices(self, model):
