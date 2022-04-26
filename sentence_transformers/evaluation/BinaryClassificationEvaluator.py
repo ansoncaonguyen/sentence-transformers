@@ -86,10 +86,10 @@ class BinaryClassificationEvaluator(SentenceEvaluator):
         #Main score is the max of F1
         max_f1 = 0
         max_infor = {}
-        for short_name in output_scores:
-            if output_scores[short_name]['f1'] > max_f1:
-                max_f1 = output_scores[short_name]['f1']
-                max_infor[short_name] = output_scores[short_name]
+        for short_name in scores:
+            if scores[short_name]['f1'] > max_f1:
+                max_f1 = scores[short_name]['f1']
+                max_infor[short_name] = scores[short_name]
 
         file_output_data = [epoch, steps]
 
