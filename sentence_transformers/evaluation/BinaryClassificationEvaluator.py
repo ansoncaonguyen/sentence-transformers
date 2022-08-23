@@ -111,7 +111,7 @@ class BinaryClassificationEvaluator(SentenceEvaluator):
                     writer = csv.writer(f)
                     writer.writerow(file_output_data)
 
-        return max_f1
+        return max_infor
 
 
     def compute_metrices(self, model):
